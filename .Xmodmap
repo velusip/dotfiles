@@ -1,0 +1,9 @@
+! I physically rearranged some keys on my Speedlink SL6465 keyboard
+! Rotated 3 keys to the right, carrying the \ to the left so that
+! both alts touch space and my Finland key is in a familiar spot.
+
+remove Mod1 = Alt_L
+keycode 94 = Alt_L
+keycode 64 = Super_L
+add Mod1 = Alt_L
+

@@ -1,0 +1,164 @@
+set aaa_mode=all
+set altformat_current= %F 
+set altformat_playlist= %f%= %d 
+set altformat_title=%f
+set altformat_trackwin= %f%= %d 
+set auto_reshuffle=true
+set buffer_seconds=10
+set color_cmdline_bg=default
+set color_cmdline_fg=default
+set color_error=lightred
+set color_info=lightyellow
+set color_separator=blue
+set color_statusline_bg=gray
+set color_statusline_fg=black
+set color_titleline_bg=blue
+set color_titleline_fg=white
+set color_win_bg=default
+set color_win_cur=lightyellow
+set color_win_cur_sel_bg=blue
+set color_win_cur_sel_fg=lightyellow
+set color_win_dir=lightblue
+set color_win_fg=default
+set color_win_inactive_cur_sel_bg=gray
+set color_win_inactive_cur_sel_fg=lightyellow
+set color_win_inactive_sel_bg=gray
+set color_win_inactive_sel_fg=black
+set color_win_sel_bg=blue
+set color_win_sel_fg=white
+set color_win_title_bg=blue
+set color_win_title_fg=white
+set confirm_run=true
+set continue=true
+set display_artist_sort_name=false
+set dsp.alsa.device=default
+set dsp.ao.buffer_size=16384
+set dsp.ao.driver=
+set dsp.ao.wav_counter=1
+set dsp.ao.wav_dir=/home/velusip
+set dsp.oss.device=
+set format_current= %a - %l -%3n. %t%= %y 
+set format_playlist= %-25%a %3n. %t%= %y %d 
+set format_playlist_va= %-25%A %3n. %t (%a)%= %y %d 
+set format_title=%a - %l - %t (%y)
+set format_trackwin=%3n. %t%= %y %d 
+set format_trackwin_va=%3n. %t (%a)%= %y %d 
+set id3_default_charset=ISO-8859-1
+set lib_sort=filename album tracknumber artist discnumber title
+set mixer.alsa.channel=PCM
+set mixer.alsa.device=default
+set mixer.oss.channel=PCM
+set mixer.oss.device=
+set mixer.pulse.restore_volume=1
+set output_plugin=alsa
+set passwd=
+set pl_sort=
+set play_library=true
+set play_sorted=true
+set repeat=true
+set repeat_current=false
+set replaygain=disabled
+set replaygain_limit=true
+set replaygain_preamp=6.000000
+set resume=false
+set set_term_title=true
+set show_hidden=false
+set show_remaining_time=false
+set shuffle=true
+set smart_artist_sort=true
+set softvol=true
+set softvol_state=20 20
+set status_display_program=
+colorscheme dark_winter2
+factivate
+### keybindings
+### {{{
+
+### {{{ common view
+# views
+bind -f     common      1         view tree
+bind -f     common      2         view sorted
+bind -f     common      3         view playlist
+bind -f     common      4         view queue
+bind -f     common      5         view browser
+bind -f     common      6         view filters
+bind -f     common      !         view settings
+# volume control
+bind -f     common      *         vol +10%
+bind -f     common      _         vol -10%
+bind -f     common      +         vol +1
+bind -f     common      -         vol -1
+bind -f     common      8         vol +1 +0
+bind -f     common      9         vol +0 +1
+bind -f     common      (         vol -1 -0
+bind -f     common      )         vol -0 -1
+# :toggle's
+bind -f     common      C         toggle continue
+bind -f     common      M         toggle play_library
+bind -f     common      m         toggle aaa_mode
+bind -f     common      o         toggle play_sorted
+bind -f     common      r         toggle repeat
+bind -f     common      t         toggle show_remaining_time
+bind -f     common      s         toggle shuffle
+# movement
+bind -f     common      ^B        win-page-up
+bind -f     common      ^F        win-page-down
+bind -f     common      down      win-down
+bind -f     common      end       win-bottom
+bind -f     common      g         win-top
+bind -f     common      j         win-down
+bind -f     common      k         win-up
+bind -f     common      page_down win-page-down
+bind -f     common      page_up   win-page-up
+bind -f     common      up        win-up
+bind -f     common      G         win-bottom
+# player control
+bind -f     common      b         player-next
+bind -f     common      c         player-pause
+bind -f     common      v         player-stop
+bind -f     common      x         player-play
+bind -f     common      y         player-prev
+# fwd/rwd
+bind -f     common      d         seek -1m
+bind -f     common      f         seek +1m
+bind -f     common      h         seek -5
+bind -f     common      l         seek +5
+bind -f     common      left      seek -5
+bind -f     common      right     seek +5
+# win-*
+bind -f     common      D         win-remove
+bind -f     common      E         win-add-Q
+bind -f     common      P         win-mv-before
+bind -f     common      a         win-add-l
+bind -f     common      delete    win-remove
+bind -f     common      e         win-add-q
+bind -f     common      enter     win-activate
+bind -f     common      home      win-top
+bind -f     common      i         win-sel-cur
+bind -f     common      space     win-toggle
+bind -f     common      tab       win-next
+bind -f     common      u         win-update
+bind -f     common      z         win-add-p
+bind -f     common      p         win-mv-after
+# search control
+bind -f     common      N         search-prev
+bind -f     common      n         search-next
+### }}}
+
+### {{{ browser view
+bind -f     browser     backspace browser-up
+bind -f     browser     H         toggle show_hidden
+### }}}
+
+### {{{ library view
+bind -f     library     F1        load /home/velusip/.config/cmus/lists/music.list
+bind -f     library     F2        load /home/velusip/.config/cmus/lists/mod.list
+bind -f     library     F3        load /home/velusip/.config/cmus/lists/streams.list
+### }}}
+
+### {{{ settings view
+bind -f     settings    q         prev-view
+### }}}
+
+### }}}
+

@@ -1,0 +1,16 @@
+[&Load last folder at startup]
+value = False
+[Program to &play files with:]
+value = mpg123
+[Show &gridlines]
+value = True
+[Su&bfolders]
+value = False
+[&Preserve file modification times (if supported)]
+value = True
+[Show tooltips in file-view:]
+value = True
+[Automatically resize columns to contents]
+value = False
+[Show &row numbers]
+value = True

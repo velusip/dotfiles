@@ -1,0 +1,7 @@
+[info]
+name = strip track
+[Func0]
+fields = track,
+func_name = replaceWithReg
+module = puddlestuff.functions
+arguments = \([0-9]\)[^0-9], $1, False

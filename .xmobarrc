@@ -1,0 +1,17 @@
+Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
+       , bgColor = "black"
+       , fgColor = "grey"
+       , position = TopW L 98
+       , lowerOnStart = True
+       , commands = [ Run Weather "CYVR" ["-t","yvr<tempC>","-L","0","-H","18","--normal","green","--high","red","--low","lightblue"]  72000
+                    , Run Weather "CYOW" ["-t","yow<tempC>","-L","0","-H","18","--normal","green","--high","red","--low","lightblue"]  72000
+                    , Run Cpu ["-t","c<total>","-L","10","-H","60","--normal","green","--high","red","--low","lightblue"]  10
+                    , Run Memory ["-t","m<usedratio>","-L","20","-H","70","--normal","green","--high","red","--low","lightblue"]  50
+                    , Run Date "%a %b %_d %H%Mh" "date"  600
+                    , Run Com "sh" ["/home/velusip/bin/npcmus.sh"] "npcmus"  5
+                    , Run StdinReader
+                    ]
+    , sepChar = "%"
+    , alignSep = "}{"
+    , template = "%StdinReader% }{ %npcmus%<fc=#be6ebe> | %cpu%%memory% | %date% | %CYVR%%CYOW%</fc>"
+    }

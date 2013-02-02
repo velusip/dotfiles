@@ -1,0 +1,15 @@
+[puddlestuff.functions_replace]
+arguments = Feat\., Featuring, False, False
+fields = title,
+[puddlestuff.functions_autonumbering]
+arguments = 1, False, 1
+fields = __selected,
+[puddlestuff.functions_titleCase]
+arguments = Mixed Case, "., !("
+fields = artist, album, title
+[puddlestuff.functions_remove_fields]
+arguments = ,
+fields = __selected,
+[puddlestuff.functions_replaceWithReg]
+arguments = ^[^\"]+, "", False
+fields = comment,

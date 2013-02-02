@@ -1,0 +1,12 @@
+[info]
+name = Ver.
+[Func0]
+fields = title,
+func_name = replace
+module = puddlestuff.functions
+arguments = Ver., Version, False, False
+[Func1]
+fields = title,
+func_name = replace
+module = puddlestuff.functions
+arguments = Feat., Featuring, False, False

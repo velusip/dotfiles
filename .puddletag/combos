@@ -1,0 +1,14 @@
+[filter_text]
+values = "", ""
+[&Replace]
+values = Feat, Feat., "( ", " )", " ]", "[ ", ], [, Ver., ~, Ii, Iii, Feat\., Feat\.
+[w&ith:]
+values = Featuring, (, ), Version, II, III, Featuring
+["For &Mixed Case, after any of:"]
+values = "., !(",
+[&Regular Expression]
+values = \($, \([0-9]\)[^0-9], $, \r, ^[^\"]+
+[Replace &matches with:]
+values = \), \$, $1, " ", ""
+[&Separator]
+values = ;,
