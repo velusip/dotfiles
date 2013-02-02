@@ -29,7 +29,9 @@ set foldlevel=99
 "map <c-l> <c-w>l
 "map <c-h> <c-w>h
 
-
+" #### temporary files
+set backupdir=~/tmp,.
+set directory=~/tmp,.
 
 
 
