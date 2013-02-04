@@ -1,16 +1,28 @@
-# just load screen with this screen config from cli and attach X from within screen
-# don't reload screenrc, instead:  Ctrl-a:source .screenrc
+# .bashrc:  alias screenx='screen -c ~/.screenx'
 
 startup_message off
 defslowpaste 5
 defmonitor 1
 term screen-256color
+termcapinfo rxvt-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
 screen -t startx startx
 screen -t cmus cmus
 screen -t irssi irssi
 screen -t bash
 select 0
-#bindkey -k k0 select 0
 
 altscreen off
-caption always '%w'
+hardstatus ignore
+
+# enforce highlighting scheme in paired values
+# e.g. default:  sorendition 10 99
+# - first pair is background
+# - second pair is foreground
+# a = (0:normal, 1:invert, 2:bright, 3:both)
+# b = (0:normal, -:?, 5:?)
+# c,d = (0:black, 1:red, 2:green, 3:brown, 4:blue, 5:magenta, 6:cyan, 7:silver, 9:def)
+sorendition 00 05
+caption always '%{= 25 km}%w'
+bce off
+
+# reload:  Ctrl-a:source .screenrc

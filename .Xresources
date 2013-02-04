@@ -1,31 +1,34 @@
 ! file:      ~/.Xresrouces
 
 ! urxvt appearance #############################################################
-URxvt*termName:    rxvt-256color
-URxvt*loginShell:  False
-URxvt.depth:       32
-URxvt.background:  rgba:1111/1111/1111/cccc
-URxvt*background:  White
-URxvt*foreground:  Black
-URxvt*transparent: True
-URxvt*shading:     190
+URxvt.termName:    rxvt-256color
+URxvt.loginShell:  False
 URxvt.scrollBar:   False
 URxvt.border:      False
-URxvt.borderColor: #000000
-URxvt*faceName:    terminus:bold:pixelsize=14
-URxvt*highlightColor:     Black
-URxvt*highlightTextColor: White
+URxvt.depth:       32
+URxvt.background:  rgba:0000/0000/1111/9999
+URxvt.transparent: True
+URxvt.shading:     190
+URxvt.highlightColor:     Black
+URxvt.highlightTextColor: White
+!URxvt.font:        -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso8859-1
+!URxvt.font:        xft:Inconsolata,xft: Terminus
+!URxvt.font:        xft:DejaVu Sans Mono:pixelsize=13
+URxvt.font:        -*-gohufont-medium-*-*-*-14-*-*-*-*-*-*-*
+URxvt.boldFont:    -*-gohufont-bold-*-*-*-14-*-*-*-*-*-*-*
+!URxvt.font:        -*-profont-*-*-*-*-15-*-*-*-*-*-iso8859-1
+!URxvt.boldFont:    -*-profont-*-*-*-*-15-*-*-*-*-*-iso8859-1
+!URxvt.
 
 ! urxvt middle click ###########################################################
 URxvt.perl-ext-common:   default,matcher
 URxvt.url-launcher:       /usr/bin/firefox
-!URxvt.urlLauncher:       /home/velusip/bin/vimptab 
 URxvt.matcher.button:    2
 URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
 
 ! Xft settings
-! Xft.dpi:        96
-! Xft.antialias:  true
-! Xft.rgba:       rgb
-! Xft.hinting:    true
-! Xft.hintstyle:  hintslight
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.hinting:    true
+Xft.hintstyle:  hintfull
+Xft.rgba:       rgb
