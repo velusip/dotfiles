@@ -1,22 +1,24 @@
 ! file:      ~/.Xresrouces
 
 ! urxvt appearance #############################################################
-URxvt*termName: rxvt-256color
+URxvt*termName:    rxvt-256color
 URxvt*loginShell:  False
-! URxvt.depth: 32
-! URxvt.background: rgba:1111/1111/1111/dddd
+URxvt.depth:       32
+URxvt.background:  rgba:1111/1111/1111/cccc
 URxvt*background:  White
 URxvt*foreground:  Black
-! URxvt*transparent: True
-! URxvt*shading:     190
+URxvt*transparent: True
+URxvt*shading:     190
 URxvt.scrollBar:   False
 URxvt.border:      False
 URxvt.borderColor: #000000
 URxvt*faceName:    terminus:bold:pixelsize=14
+URxvt*highlightColor:     Black
+URxvt*highlightTextColor: White
 
 ! urxvt middle click ###########################################################
 URxvt.perl-ext-common:   default,matcher
-URxvt.urlLauncher:       firefox
+URxvt.url-launcher:       /usr/bin/firefox
 !URxvt.urlLauncher:       /home/velusip/bin/vimptab 
 URxvt.matcher.button:    2
 URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
