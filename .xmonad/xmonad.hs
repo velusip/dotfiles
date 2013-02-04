@@ -17,7 +17,10 @@ myNormalBorderColour = "#000000"
 myFocusedBorderColour = "#c050f0" -- purplish
 myModMask = mod4Mask -- Finland key
 myFocusFollowsMouse = True
-myManageHook = manageDocks <+> manageHook defaultConfig
+-- myManageHook = manageDocks <+> manageHook defaultConfig
+myManageHook = composeAll
+    [ className =? "Gimp" --> doFloat 
+    , manageDocks]
 myLayout = avoidStruts $ smartBorders tiled ||| smartBorders (Mirror tiled) ||| noBorders Full
     where
         tiled = Tall nmaster delta tiled_ratio
