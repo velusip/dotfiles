@@ -4,7 +4,8 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Layout
 import XMonad.Layout.NoBorders ( noBorders, smartBorders )
 import XMonad.Util.Run(spawnPipe)
-import XMonad.Util.EZConfig(additionalKeysP)
+import XMonad.Util.EZConfig
+import XMonad.Util.EZConfig ( additionalKeysP )
 import System.IO
 
 import XMonad.Hooks.EwmhDesktops
@@ -19,8 +20,10 @@ myModMask = mod4Mask -- Finland key
 myFocusFollowsMouse = True
 -- myManageHook = manageDocks <+> manageHook defaultConfig
 myManageHook = composeAll
-    [ className =? "Gimp" --> doFloat 
-    , manageDocks]
+    [ className =? "Gimp" --> doFloat
+    , (className =? "Firefox" <&&> resource =? "Dialog") --> doFloat
+    , manageDocks
+    ]
 myLayout = avoidStruts $ smartBorders tiled ||| smartBorders (Mirror tiled) ||| noBorders Full
     where
         tiled = Tall nmaster delta tiled_ratio
