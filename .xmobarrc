@@ -1,8 +1,7 @@
-Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
+Config { font = "-*-gohufont-bold-*-*-*-14-*-*-*-*-*-*-*"
        , bgColor = "black"
        , fgColor = "grey"
        , border = NoBorder
-       , borderColor = "magenta"
        , hideOnStart = False
        , persistent = False
        , position = TopW L 98
