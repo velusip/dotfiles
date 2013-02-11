@@ -40,7 +40,7 @@ main = do
         terminal = myTerminal,
         borderWidth = myBorderWidth,
         normalBorderColor = myNormalBorderColour,
-        focusedBorderColor = myNormalBorderColour,
+        focusedBorderColor = myFocusedBorderColour,
         modMask = mod4Mask,
         focusFollowsMouse = myFocusFollowsMouse,
 
