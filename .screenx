@@ -2,9 +2,10 @@
 
 startup_message off
 defslowpaste 5
-defmonitor 1
+defmonitor on
 term screen-256color
 termcapinfo rxvt-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
 screen -t startx startx
 screen -t cmus cmus
 screen -t irssi irssi
@@ -13,16 +14,10 @@ select 0
 
 altscreen off
 hardstatus ignore
-
-# enforce highlighting scheme in paired values
-# e.g. default:  sorendition 10 99
-# - first pair is background
-# - second pair is foreground
-# a = (0:normal, 1:invert, 2:bright, 3:both)
-# b = (0:normal, -:?, 5:?)
-# c,d = (0:black, 1:red, 2:green, 3:brown, 4:blue, 5:magenta, 6:cyan, 7:silver, 9:def)
-sorendition 00 05
-caption always '%{= 25 km}%w'
+# 11 00 0:normal, 1:invert, 2:bright, 3:1+2, 4:bold, 5:3+4
+# 00 11 0:bla, 1:red, 2:gre, 3:bro, 4:blu, 5:mag, 6:cya, 7:sil, 9:def
+sorendition 44 60
+caption always '%{= 00 rk}%w'
 bce off
 
-# reload:  Ctrl-a:source .screenrc
+# comment out new screens and reload:  Ctrl-a:source .screenrc

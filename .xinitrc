@@ -9,9 +9,10 @@ setxkbmap -option compose:menu
 # set mouse to dull (default 1/2 4)
 xset m 0 0
 
-# addfontpath
+# add font path
 xset +fp /usr/share/fonts/local
 xset +fp /usr/share/fonts/misc
+xset fp rehash
 
 # cycle wallpaper
 while true;
@@ -26,7 +27,12 @@ done &
 # merge x resources
 xrdb -merge ~/.Xresources
 
-# tray beside xmobar
-exec trayer --edge top --align right --SetDockType true --SetPartialStrut false --expand false --width 2 --transparent true --alpha 0 --tint 0x000000 --height 15 &
+# pre window manager
+[ -f ~/.xprofile ] && source ~/.xprofile
+
+# set trayer beside xmobar
+exec trayer --edge top --align right --SetDockType true --SetPartialStrut false --expand false --widthtype percent --width 2.1 --transparent true --alpha 0 --tint 0xFEF9EC --heighttype pixel --height 18 &
+
+# call wm
 exec xmonad
 

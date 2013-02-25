@@ -1,22 +1,75 @@
 servers = (
-  { address = "chat.freenode.net"; chatnet = "Freenode"; port = "6667"; autoconnect = "yes"; },
-  { address = "localhost"; chatnet = "Septa"; port = "6667"; autoconnect = "yes"; },
-  { address = "irc.quakenet.org"; chatnet = "QuakeNet"; port = "6667"; },
+  {
+    address = "chat.freenode.net";
+    chatnet = "Freenode";
+    port = "6667";
+    autoconnect = "yes";
+  },
+  {
+    address = "localhost";
+    chatnet = "Septa";
+    port = "6667";
+    autoconnect = "yes";
+  },
+  { 
+    address = "irc.quakenet.org";
+    chatnet = "QuakeNet";
+    port = "6667";
+  },
   { address = "irc.efnet.org"; chatnet = "EFNet"; port = "6667"; },
   { address = "irc.esper.net"; chatnet = "Esper"; port = "6667"; },
-  { address = "irc.gamesurge.net"; chatnet = "GameSurge"; port = "6667"; },
+  {
+    address = "irc.gamesurge.net";
+    chatnet = "GameSurge";
+    port = "6667";
+  },
   { address = "irc.rizon.net"; chatnet = "Rizon"; port = "6667"; },
   { address = "irc.newnet.net"; chatnet = "Newnet"; port = "6667"; },
-  {address = "irc.coldfront.net"; chatnet = "Coldfront"; port = "6667"; }
+  {
+    address = "irc.coldfront.net";
+    chatnet = "Coldfront";
+    port = "6667";
+  }
 );
 
 chatnets = {
-  QuakeNet = { type = "IRC"; max_kicks = "1"; max_msgs = "3"; max_whois = "30"; };
-  Freenode = { type = "IRC"; max_kicks = "4"; max_msgs = "3"; max_whois = "1"; autosendcmd = "/msg NickServ identify --snip--;wait 5000"; };
-  EFNet = { type = "IRC"; max_kicks = "4"; max_msgs = "3"; max_whois = "1"; };
-  Esper = { type = "IRC"; max_kicks = "1"; max_msgs = "3"; max_whois = "30"; };
-  Rizon = { type = "IRC"; max_kicks = "1"; max_msgs = "3"; max_whois = "30"; };
-  GameSurge = { type = "IRC"; max_kicks = "1"; max_msgs = "3"; max_whois = "30"; };
+  QuakeNet = {
+    type = "IRC";
+    max_kicks = "1";
+    max_msgs = "3";
+    max_whois = "30";
+  };
+  Freenode = {
+    type = "IRC";
+    max_kicks = "4";
+    max_msgs = "3";
+    max_whois = "1";
+    autosendcmd = "/msg NickServ identify -snip-;wait 5000";
+  };
+  EFNet = { 
+    type = "IRC";
+    max_kicks = "4";
+    max_msgs = "3";
+    max_whois = "1";
+  };
+  Esper = { 
+    type = "IRC";
+    max_kicks = "1";
+    max_msgs = "3";
+    max_whois = "30";
+  };
+  Rizon = { 
+    type = "IRC";
+    max_kicks = "1";
+    max_msgs = "3";
+    max_whois = "30";
+  };
+  GameSurge = {
+    type = "IRC";
+    max_kicks = "1";
+    max_msgs = "3";
+    max_whois = "30";
+  };
   Septa = { type = "IRC"; };
   Newnet = { type = "IRC"; };
   Coldfront = { type = "IRC"; };
@@ -25,7 +78,11 @@ chatnets = {
 channels = (
   { name = "#devious"; chatnet = "QuakeNet"; autojoin = "yes"; },
   { name = "#archlinux"; chatnet = "Freenode"; autojoin = "yes"; },
-  { name = "#archlinux-offtopic"; chatnet = "Freenode"; autojoin = "yes"; },
+  {
+    name = "#archlinux-offtopic";
+    chatnet = "Freenode";
+    autojoin = "yes";
+  },
   { name = "&bitlbee"; chatnet = "Septa"; autojoin = "yes"; },
   { name = "#New_World_Order"; chatnet = "EFnet"; autojoin = "yes"; },
   { name = "#minecraft"; chatnet = "Esper"; autojoin = "yes"; },
@@ -36,11 +93,15 @@ channels = (
 
 
 settings = {
-  core = { real_name = "velusip"; user_name = "velusip"; nick = "velusip"; };
+  core = { 
+    real_name = "velusip";
+    user_name = "velusip";
+    nick = "velusip";
+  };
   "fe-text" = { actlist_sort = "refnum"; scroll_page_count = "/1"; };
   "irc/dcc" = { dcc_download_path = "= /home/velusip/tmp/"; };
   "fe-common/core" = {
-    theme = "dark_winter";
+    theme = "elpi";
     beep_msg_level = "HILIGHT";
     completion_char = ",";
     term_charset = "utf-8";

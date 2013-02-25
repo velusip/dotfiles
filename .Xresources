@@ -1,30 +1,53 @@
 ! file:      ~/.Xresrouces
 
-! urxvt appearance #############################################################
+! urxvt appearance
 URxvt.termName:    rxvt-256color
 URxvt.loginShell:  False
 URxvt.scrollBar:   False
 URxvt.border:      False
+URxvt.transparent: False
+URxvt.shading:     0
 URxvt.depth:       32
-URxvt.background:  rgba:0000/0000/1111/9999
-URxvt.transparent: True
-URxvt.shading:     190
-URxvt.highlightColor:     Black
-URxvt.highlightTextColor: White
-!URxvt.font:        -*-terminus-medium-*-*-*-*-140-*-*-*-*-iso8859-1
-!URxvt.font:        xft:Inconsolata,xft: Terminus
-!URxvt.font:        xft:DejaVu Sans Mono:pixelsize=13
-URxvt.font:        -*-gohufont-medium-*-*-*-14-*-*-*-*-*-*-*
 URxvt.boldFont:    -*-gohufont-bold-*-*-*-14-*-*-*-*-*-*-*
-!URxvt.font:        -*-profont-*-*-*-*-15-*-*-*-*-*-iso8859-1
-!URxvt.boldFont:    -*-profont-*-*-*-*-15-*-*-*-*-*-iso8859-1
-!URxvt.
-
-! urxvt middle click ###########################################################
-URxvt.perl-ext-common:   default,matcher
-URxvt.url-launcher:       /usr/bin/firefox
-URxvt.matcher.button:    2
+URxvt.font:        -*-gohufont-medium-*-*-*-14-*-*-*-*-*-*-*
 URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
+URxvt.perl-ext-common:   default,matcher
+URxvt.matcher.button:    2
+URxvt.url-launcher:      /usr/bin/firefox
+
+! colours -- full colour format:  rgba:0000/0000/0000/ffff
+*highlightColor:     Black
+*highlightTextColor: White
+*background:  #FEF9EC
+*foreground:  #3D424E
+*colorBD:     #3E424D
+*colorIT:     #3E424D
+*colorUL:     #3E424D
+*cursorColor: #007693
+! BLACK
+*color7:      #252114
+*color15:     #717682
+! WHITE
+*color0:      #3E424D
+*color8:      #282C36
+! RED
+*color1:      #E75C58
+*color9:      #B22B31
+! YELLOW
+*color3:      #A08A00
+*color11:     #715F00
+! GREEN
+*color2:      #00A250
+*color10:     #007427
+! CYAN
+*color6:      #00A4C1
+*color14:     #007693
+! BLUE
+*color4:      #208FFB
+*color12:     #0065CA
+! MAGENTA
+*color5:      #D160C4
+*color13:     #A03196
 
 ! Xft settings
 Xft.dpi:        96
