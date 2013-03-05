@@ -5,38 +5,12 @@ set altformat_title=%f
 set altformat_trackwin= %f%= %d 
 set auto_reshuffle=true
 set buffer_seconds=10
-set color_cmdline_bg=default
-set color_cmdline_fg=default
-set color_error=lightred
-set color_info=lightyellow
-set color_separator=blue
-set color_statusline_bg=gray
-set color_statusline_fg=black
-set color_titleline_bg=blue
-set color_titleline_fg=white
-set color_win_bg=default
-set color_win_cur=lightyellow
-set color_win_cur_sel_bg=blue
-set color_win_cur_sel_fg=lightyellow
-set color_win_dir=lightblue
-set color_win_fg=default
-set color_win_inactive_cur_sel_bg=gray
-set color_win_inactive_cur_sel_fg=lightyellow
-set color_win_inactive_sel_bg=gray
-set color_win_inactive_sel_fg=black
-set color_win_sel_bg=blue
-set color_win_sel_fg=white
-set color_win_title_bg=blue
-set color_win_title_fg=white
 set confirm_run=true
 set continue=true
 set display_artist_sort_name=false
 set dsp.alsa.device=default
 set dsp.ao.buffer_size=16384
-set dsp.ao.driver=
 set dsp.ao.wav_counter=1
-set dsp.ao.wav_dir=/home/velusip
-set dsp.oss.device=
 set format_current= %a - %l -%3n. %t%= %y 
 set format_playlist= %-25%a %3n. %t%= %y %d 
 set format_playlist_va= %-25%A %3n. %t (%a)%= %y %d 
@@ -48,11 +22,8 @@ set lib_sort=filename album tracknumber artist discnumber title
 set mixer.alsa.channel=PCM
 set mixer.alsa.device=default
 set mixer.oss.channel=PCM
-set mixer.oss.device=
 set mixer.pulse.restore_volume=1
 set output_plugin=alsa
-set passwd=
-set pl_sort=
 set play_library=true
 set play_sorted=true
 set repeat=true
@@ -68,13 +39,9 @@ set shuffle=true
 set smart_artist_sort=true
 set softvol=true
 set softvol_state=20 20
-set status_display_program=
-colorscheme dark_winter2
-factivate
-### keybindings
-### {{{
 
-### {{{ common view
+colorscheme candy
+
 # views
 bind -f     common      1         view tree
 bind -f     common      2         view sorted
@@ -143,22 +110,8 @@ bind -f     common      p         win-mv-after
 # search control
 bind -f     common      N         search-prev
 bind -f     common      n         search-next
-### }}}
 
-### {{{ browser view
+# browser view
 bind -f     browser     backspace browser-up
 bind -f     browser     H         toggle show_hidden
-### }}}
-
-### {{{ library view
-bind -f     library     F1        load /home/velusip/.config/cmus/lists/music.list
-bind -f     library     F2        load /home/velusip/.config/cmus/lists/mod.list
-bind -f     library     F3        load /home/velusip/.config/cmus/lists/streams.list
-### }}}
-
-### {{{ settings view
-bind -f     settings    q         prev-view
-### }}}
-
-### }}}
 
