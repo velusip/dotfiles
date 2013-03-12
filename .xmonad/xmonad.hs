@@ -45,7 +45,7 @@ main = do
         , startupHook = ewmhDesktopsStartup
                         >> setWMName "LG3D"
                         >> takeTopFocus
-        , layoutHook = tiled ||| Mirror tiled ||| noBorders Full
+        , layoutHook = avoidStruts(tiled ||| Mirror tiled ||| noBorders Full)
         } `additionalKeysP`
             [ ("M-S-x", spawn "slock")
             , ("M-b", sendMessage ToggleStruts)
@@ -61,7 +61,7 @@ main = do
             , ("<XF86Back>", spawn "cmus-remote --seek -5")
             , ("M-xK_Print", spawn "/home/velusip/bin/spai.sh")
             ]
-    where tiled = smartBorders $ smartSpacing 8 $ avoidStruts $ Tall 1 0.03 0.5
+    where tiled = smartBorders $ smartSpacing 8 $ Tall 1 0.03 0.5
 
 -- | xmobar string colourising instructions.
 xmobarRainbow :: String -> String
