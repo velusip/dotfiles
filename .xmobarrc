@@ -7,8 +7,7 @@ Config { font = "-*-*-*-*-*-*-14-*-*-*-*-*-*-uni"
        , persistent = False
        , position = TopW L 98
        , lowerOnStart = True
-       , commands = [ Run Weather "CYOW" ["-t","<tempC>","-L","0","-H","18","--normal","#073","--high","#b33","--low","#06d"]  72000
-                    , Run Cpu ["-t","c<total>","-L","10","-H","60","--normal","#073","--high","#b33","--low","#06d"]  10
+       , commands = [ Run Cpu ["-t","c<total>","-L","10","-H","60","--normal","#073","--high","#b33","--low","#06d"]  10
                     , Run Memory ["-t","m<usedratio>","-L","20","-H","70","--normal","#073","--high","#811","--low","#06d"]  50
                     , Run Date "%a %b %_d %H%Mh" "date"  600
                     , Run Com "sh" ["/home/velusip/bin/npcmus.sh"] "npcmus"  5
@@ -16,5 +15,5 @@ Config { font = "-*-*-*-*-*-*-14-*-*-*-*-*-*-uni"
                     ]
     , sepChar = "%"
     , alignSep = "}{"
-    , template = "%StdinReader% }{ %npcmus% <fc=#a90>★</fc> %cpu%%memory% <fc=#0ac>★</fc> %date% <fc=#d6c>★</fc> %CYOW% "
+    , template = "%StdinReader% }{ %npcmus% <fc=#a90>★</fc> %cpu%%memory% <fc=#0ac>★</fc> %date% <fc=#d6c>★</fc>  "
     }
