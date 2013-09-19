@@ -1,5 +1,6 @@
 " velu's .vimrc
-" #### visual preferences ######################################################
+" #### other
+set regexpengine=1
 " #### colourizing
 set background=light
 " #### hi-lighting

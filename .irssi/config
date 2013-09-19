@@ -9,7 +9,7 @@ servers = (
     address = "localhost";
     chatnet = "Septa";
     port = "6667";
-    autoconnect = "yes";
+    autoconnect = "no";
   },
   { 
     address = "irc.quakenet.org";

@@ -17,7 +17,7 @@ main = do
     xmproc <- spawnPipe "/usr/bin/xmobar /home/velusip/.xmobarrc"
     xmonad $ defaultConfig
         { terminal = "urxvt"
-        , borderWidth = 0
+        , borderWidth = 4
         , normalBorderColor = "#000000"
         , focusedBorderColor = "#ffa90a" -- orange
         , modMask = mod4Mask             -- Finland key
@@ -44,7 +44,7 @@ main = do
             }
         , startupHook = ewmhDesktopsStartup
                         >> setWMName "LG3D"
-                        >> takeTopFocus
+--                        >> takeTopFocus
         , layoutHook = avoidStruts(tiled ||| Mirror tiled ||| noBorders Full)
         } `additionalKeysP`
             [ ("M-S-x", spawn "slock")
