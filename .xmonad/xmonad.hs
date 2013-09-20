@@ -59,7 +59,9 @@ main = do
             , ("<XF86Reload>", spawn "cmus-remote --shuffle")
             , ("<XF86Forward>", spawn "cmus-remote --seek +5")
             , ("<XF86Back>", spawn "cmus-remote --seek -5")
-            , ("M-xK_Print", spawn "/home/velusip/bin/spai.sh")
+            , ("<Print>", spawn "/home/velusip/bin/ssur")
+            --, ("xK_Print", spawn "/home/velusip/bin/ssur")
+            , ("M-<Print>", spawn "/home/velusip/bin/ssur -u")
             ]
     where tiled = smartBorders $ smartSpacing 8 $ Tall 1 0.03 0.5
 
