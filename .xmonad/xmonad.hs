@@ -14,7 +14,7 @@ import System.IO
 import qualified Data.Map as M
 
 main = do
-    xmproc <- spawnPipe "/usr/bin/xmobar /home/velusip/.xmobarrc"
+    xmproc <- spawnPipe "xmobar ~/.xmobarrc"
     xmonad $ myConfig xmproc
 
 myConfig xmprocHandle = defaultConfig
