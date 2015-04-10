@@ -1,0 +1,2 @@
+# window effects
+compton --config ~/.config/compton.conf -b&

@@ -1,0 +1,16 @@
+[user]
+    name = velusip
+    email = velusip@gmail.com
+[core]
+    editor = vim
+[push]
+    default = simple
+[alias]
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+
+[filter "spabs"]
+    clean = expand --initial -t 4
+    smudge = expand --initial -t 4
+    required
+[merge]
+    renormalize = true
