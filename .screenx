@@ -14,7 +14,8 @@ caption always '%{= 00 rk}%w'
 defbce off #default background colour erase
 
 # comment out new screens and reload:  Ctrl-a:source .screenrc
-screen -t startx startx
+
+#screen -t startx startx # doesn't work anymore.  Thanks systemd
 screen -t cmus cmus
 #screen -t irssi irssi
 screen -t bash
