@@ -1,23 +1,22 @@
 # .bashrc:  alias screenx='screen -c ~/.screenx'
-
+vbell off
 startup_message off
-defslowpaste 5
-defmonitor on
+defslowpaste 5 #wait msec per character when pasting
 term screen-256color
 termcapinfo rxvt-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+defmonitor off #default no monitor activity
+altscreen off #keep all output to current buffer
+hardstatus ignore #never display
+# bf 00  0:normal, 1:invert, 2:bright, 3:1+2, 4:bold, 5:3+4
+# 00 bf  0:blk, 1:red, 2:grn, 3:brn, 4:blu, 5:mag, 6:cya, 7:sil, 9:def
+sorendition 02 96
+caption always '%{= 00 rk}%w'
+defbce off #default background colour erase
 
+# comment out new screens and reload:  Ctrl-a:source .screenrc
 screen -t startx startx
 screen -t cmus cmus
-screen -t irssi irssi
+#screen -t irssi irssi
 screen -t bash
 select 0
 
-altscreen off
-hardstatus ignore
-# 11 00 0:normal, 1:invert, 2:bright, 3:1+2, 4:bold, 5:3+4
-# 00 11 0:bla, 1:red, 2:gre, 3:bro, 4:blu, 5:mag, 6:cya, 7:sil, 9:def
-sorendition 44 60
-caption always '%{= 00 rk}%w'
-bce off
-
-# comment out new screens and reload:  Ctrl-a:source .screenrc

@@ -11,8 +11,8 @@ set display_artist_sort_name=false
 set dsp.alsa.device=default
 set dsp.ao.buffer_size=16384
 set dsp.ao.wav_counter=1
-set format_current= %a - %l -%3n. %t%= %y 
-set format_playlist= %-25%a %3n. %t%= %y %d 
+set format_current=%a - %t - %l - %3n (%{bitrate}Kbps, %y, %d, %g)
+set format_playlist=%a - %t - %l - %3n (%{bitrate}Kbps, %y, %d, %g)
 set format_playlist_va= %-25%A %3n. %t (%a)%= %y %d 
 set format_title=%a - %l - %t (%y)
 set format_trackwin=%3n. %t%= %y %d 

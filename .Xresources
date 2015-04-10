@@ -1,5 +1,3 @@
-! file:      ~/.Xresrouces
-
 ! urxvt appearance
 URxvt.termName:    rxvt-256color
 URxvt.loginShell:  False
@@ -20,34 +18,34 @@ URxvt.url-launcher:      /usr/bin/firefox
 *highlightTextColor: White
 *background:  #FEF9EC
 *foreground:  #3D424E
-*colorBD:     #3E424D
-*colorIT:     #3E424D
-*colorUL:     #3E424D
+*colorBD:     #d7d7d7
+*colorIT:     #87af5f
+*colorUL:     #87afd7
 *cursorColor: #007693
 ! BLACK
-*color7:      #252114
-*color15:     #717682
-! WHITE
-*color0:      #3E424D
-*color8:      #282C36
+*color0:      #252114
+*color8:      #414858
 ! RED
 *color1:      #E75C58
 *color9:      #B22B31
-! YELLOW
-*color3:      #A08A00
-*color11:     #715F00
 ! GREEN
 *color2:      #00A250
 *color10:     #007427
-! CYAN
-*color6:      #00A4C1
-*color14:     #007693
+! YELLOW
+*color3:      #A08A00
+*color11:     #715F00
 ! BLUE
 *color4:      #208FFB
 *color12:     #0065CA
 ! MAGENTA
 *color5:      #D160C4
 *color13:     #A03196
+! CYAN
+*color6:      #00A4C1
+*color14:     #007693
+! GRAY
+*color7:      #717682
+*color15:     #4f5563
 
 ! Xft settings
 Xft.dpi:        96

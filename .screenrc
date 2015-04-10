@@ -1,5 +1,5 @@
 # .bashrc:  alias screenx='screen -c ~/.screenx'
-
+vbell off
 startup_message off
 defslowpaste 5
 defmonitor 1

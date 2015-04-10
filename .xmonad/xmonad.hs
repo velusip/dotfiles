@@ -2,13 +2,14 @@ import XMonad
 import Control.Monad
 import XMonad.Hooks.DynamicLog -- http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Hooks-DynamicLog.html
 import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.SetWMName
-import XMonad.Hooks.ICCCMFocus
-import XMonad.Hooks.EwmhDesktops
+import XMonad.Hooks.SetWMName -- for Java
+-- import XMonad.Hooks.ICCCMFocus -- takeTopFocus
+import XMonad.Hooks.EwmhDesktops -- for Java
 import XMonad.Layout.NoBorders(noBorders, smartBorders)
 import XMonad.Layout.Spacing
 import XMonad.Util.WorkspaceCompare
 import XMonad.Util.Run(spawnPipe)
+import XMonad.Actions.GroupNavigation -- http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Actions-GroupNavigation.html
 import Graphics.X11.ExtraTypes.XF86 -- http://xmonad.org/xmonad-docs/X11/Graphics-X11-ExtraTypes-XF86.html
 import System.IO
 import qualified Data.Map as M
@@ -21,17 +22,17 @@ myConfig xmprocHandle = defaultConfig
     { startupHook = myStartupHook
     , layoutHook = myLayoutHook
     , manageHook = myManageHook
-    , logHook = myLogHook xmprocHandle
+    , logHook = myLogHook xmprocHandle <+> historyHook
     , modMask = mod4Mask -- Finland key
     , keys = myKeys <+> keys defaultConfig
     , terminal = "urxvt"
-    , borderWidth = 4
+    , borderWidth = 1
     , normalBorderColor = "#000000"
     , focusedBorderColor = "#ffa90a" -- orange
     , focusFollowsMouse = True
     }
 
-myStartupHook = ewmhDesktopsStartup >> setWMName "LG3D"
+myStartupHook = ewmhDesktopsStartup >> setWMName "LG3D" -- for some Java issues
 
 myLayoutHook = avoidStruts(tiled ||| Mirror tiled ||| noBorders Full)
 
@@ -45,13 +46,14 @@ myManageHook = composeAll
     ]
 
 myLogHook :: Handle -> X ()
-myLogHook xmproc = takeTopFocus >> dynamicLogWithPP defaultPP
+-- myLogHook xmproc = takeTopFocus >> dynamicLogWithPP defaultPP
+myLogHook xmproc = dynamicLogWithPP defaultPP
     { ppCurrent         = xmobarColor "#545" "#c7e0e5"
     , ppVisible         = wrap "(" ")"
     , ppHidden          = id
     , ppHiddenNoWindows = const ""
     , ppUrgent          = xmobarColor "red" "black"
-    , ppSep             = " ★ "
+    , ppSep             = " ★ " -- requires UTF-8 type installed
     , ppWsSep           = ""
     , ppTitle           = xmobarRainbow . shorten 64
     , ppLayout          = const "" -- suppress layout info
@@ -63,8 +65,9 @@ myLogHook xmproc = takeTopFocus >> dynamicLogWithPP defaultPP
 
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
-    [ ((modMask .|. shiftMask, xK_x), spawn "slock")
-    , ((modMask, xK_b), sendMessage ToggleStruts)
+    [ ((modMask, xK_b), sendMessage ToggleStruts)
+    , ((modMask .|. shiftMask, xK_m), nextMatch History (return True))
+    , ((modMask .|. shiftMask, xK_x), spawn "slock")
     , ((modMask, xK_p), spawn "dmenu_run -i -fn '-*-gohufont-bold-*-*-*-14-*-*-*-*-*-*-*' -nb '#fff' -nf '#555' -sb '#ec826a' -sf '#555'")
     , ((modMask, xK_Print), spawn "ssur -u")
     , ((0, xK_Print), spawn "ssur")

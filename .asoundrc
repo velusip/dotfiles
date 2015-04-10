@@ -1,62 +1,36 @@
-# old revo 7.1 & onboard intel something-or-other
-
-defaults.ctl.card 0
-defaults.pcm.card 0
-defaults.pcm.device 0
-
-# direct hardware device
-pcm.ice1724
+pcm.revo
 {
+    #ice1724
     type hw
-    card 0
-    #device 0
+    card Revolution71
 }
-ctl.ice1724
+
+pcm.sb
 {
-    type hw
-    card 0
-}
-pcm.intel
-{
+    #alc889
     type hw
     card SB
-    device 2
 }
-pcm.microphone
+
+pcm.nvidia
 {
-    type plug
-    #ipc_key 1027
-    slave {
-        pcm "intel"
-    }
-}
-# aoss bullshit
-pcm.dsp0
-{
-    type plug
-    slave.pcm dmix8
-}
-ctl.mixer0
-{
+    #nvidia HDMI
     type hw
-    card 0
+    card NVidia
 }
-# pcm.dsp "duplex"
-# pcm.dsp1 "duplex"
 
-
-# plug directly to hardware (8 channels, mix 32-bit, 48000hz)
 pcm.dmix8
 {
+    # output to all M-Audio Revolution71 hardware channels
     type dmix
-       ipc_key 1024
-       ipc_key_add_uid false
-       ipc_perm 0660
+    ipc_key 1024
+    ipc_key_add_uid false
+    ipc_perm 0660
     slave
     {
-        pcm "hw:0,0"
-        rate 48000
-        format "S16_LE"
+        pcm revo
+        rate 44100
+        format S16_LE
         channels 8
         period_time 0
         period_size 1024
@@ -64,9 +38,10 @@ pcm.dmix8
         buffer_size 8192
     }
 }
-# upmix to stereo
+
 pcm.ch71dup
 {
+    # upmix to all channels
     type route
     slave.pcm dmix8
     slave.channels 8
@@ -81,30 +56,62 @@ pcm.ch71dup
     ttable.0.6 1   #right <- side left
     ttable.1.7 1   #left  <- side right
 }
-# handle both input and output (muxless card)
+
 pcm.duplex
 {
+    # handle both input and output (muxless card)
     type asym
-    playback.pcm "ch71dup" # upmix first while we're stuck on stereo
-    capture.pcm {
+    playback.pcm ch71dup # upmix first while we're stuck on stereo
+    capture.pcm
+    {
         type plug
-        slave.pcm "hw:1,2"
+        slave.pcm sb
+        #slave.pcm "dsnooped"
     }
 }
-# set default device:
+
 pcm.!default
 {
-    type plug 
+    type plug
     slave
     {
-        pcm "duplex"
+        pcm duplex
     }
 }
 
+defaults.ctl.card 2;
+defaults.pcm.card 2;
 
-# TEST spread mono to stereo
+#pcm.!default
+#{
+#    type plug
+#    slave.pcm
+#    {
+#        type multi
+#        slaves
+#        {
+#            a { channels 2 pcm duplex }  # the real device
+#            b { channels 2 pcm "hw:0,0" }  # the loopback driver
+#        }
+#        bindings
+#        {
+#            0 { slave a channel 0 }
+#            1 { slave a channel 1 }
+#            2 { slave b channel 0 }
+#            3 { slave b channel 1 }
+#        }
+#    }
+#    ttable [
+#        [ 1 0 1 0 ]   # left  -> a.left,  b.left
+#        [ 0 1 0 1 ]   # right -> a.right, b.right
+#    ]
+#}
+
+pcm.dsp0 duplex
+
 pcm.10to20
 {
+    # spread mono to stereo
     type route
     slave.pcm default
     slave.channels 2
@@ -112,18 +119,3 @@ pcm.10to20
     ttable.0.1 1
 }
 
-
-# TEST softcontrol for a perticular program, cmus
-pcm.cmusvol
-{
-    type softvol
-    slave
-    {
-        pcm "ice1724"
-    }
-    control
-    {
-        name "CMUS"
-        card 0
-    }
-}

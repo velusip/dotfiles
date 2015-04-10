@@ -5,12 +5,15 @@ Config { font = "-*-*-*-*-*-*-14-*-*-*-*-*-*-uni"
        , border = NoBorder
        , hideOnStart = False
        , persistent = False
-       , position = TopW L 98
+       , position = TopW L 96
        , lowerOnStart = True
+       , pickBroadest = False
+       , allDesktops = True
+       , overrideRedirect = False
        , commands = [ Run Cpu ["-t","c<total>","-L","10","-H","60","--normal","#073","--high","#b33","--low","#06d"]  10
                     , Run Memory ["-t","m<usedratio>","-L","20","-H","70","--normal","#073","--high","#811","--low","#06d"]  50
                     , Run Date "%a %b %_d %H%Mh" "date"  600
-                    , Run Com "sh" ["/home/velusip/bin/npcmus.sh"] "npcmus"  5
+                    , Run Com "sh" ["/home/velusip/bin/npcmus"] "npcmus"  5
                     , Run StdinReader
                     ]
     , sepChar = "%"
