@@ -4,7 +4,7 @@
 #sudo loadkeys -q ~/.consolevu.map&
 #eval `keychain --eval --agents ssh id_rsa`
 
-PATH=$PATH:/home/velusip/bin
+PATH=/home/velusip/bin:$PATH
 
 #prompt
 PS1='[\u@\h \W]\$ '
@@ -26,7 +26,7 @@ export LESS_TERMCAP_us=$'\e[1;32m'
 export LANG=en_CA.UTF-8
 
 #x
-#export DISPLAY=:0
+export DISPLAY=:0
 
 #default editor
 export EDITOR="/usr/bin/vim"
@@ -34,3 +34,5 @@ export EDITOR="/usr/bin/vim"
 #default perms
 umask 027
 
+#mozilla acceleration
+export MOZ_USE_OMTC=1

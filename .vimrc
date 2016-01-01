@@ -39,7 +39,7 @@ if has('gui_running')
     set background=light
 endif
 hi ColorColumn ctermbg=magenta
-hi User1 ctermbg=darkcyan ctermfg=lightgrey
+hi User1 ctermbg=darkcyan ctermfg=black
 " #### show 80-column breach
 call matchadd('ColorColumn', '\%81v', 100)
 " #### status bar

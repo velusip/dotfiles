@@ -5,7 +5,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName -- for Java
 -- import XMonad.Hooks.ICCCMFocus -- takeTopFocus
 import XMonad.Hooks.EwmhDesktops -- for Java
-import XMonad.Layout.NoBorders(noBorders, smartBorders)
+import XMonad.Layout.NoBorders(noBorders)
 import XMonad.Layout.Spacing
 import XMonad.Util.WorkspaceCompare
 import XMonad.Util.Run(spawnPipe)
@@ -26,17 +26,17 @@ myConfig xmprocHandle = defaultConfig
     , modMask = mod4Mask -- Finland key
     , keys = myKeys <+> keys defaultConfig
     , terminal = "urxvt"
-    , borderWidth = 1
-    , normalBorderColor = "#000000"
-    , focusedBorderColor = "#ffa90a" -- orange
+    , borderWidth = 0
+--    , normalBorderColor = "#000001"
+--    , focusedBorderColor = "#ffa90a" -- orange
     , focusFollowsMouse = True
     }
 
-myStartupHook = ewmhDesktopsStartup >> setWMName "LG3D" -- for some Java issues
+myStartupHook = ewmhDesktopsStartup >> setWMName "LG3D" -- for some window creation issues
 
 myLayoutHook = avoidStruts(tiled ||| Mirror tiled ||| noBorders Full)
 
-tiled = smartBorders $ smartSpacing 8 $ Tall 1 0.03 0.5
+tiled = noBorders $ smartSpacing 8 $ Tall 1 0.03 0.5
 
 myManageHook = composeAll
     [ className =? "Gimp" --> doFloat
@@ -68,7 +68,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     [ ((modMask, xK_b), sendMessage ToggleStruts)
     , ((modMask .|. shiftMask, xK_m), nextMatch History (return True))
     , ((modMask .|. shiftMask, xK_x), spawn "slock")
-    , ((modMask, xK_p), spawn "dmenu_run -i -fn '-*-gohufont-bold-*-*-*-14-*-*-*-*-*-*-*' -nb '#fff' -nf '#555' -sb '#ec826a' -sf '#555'")
+    , ((modMask, xK_p), spawn "dmenu_run -i -fn 'xft:gohufont:pixelsize=14:Bold' -nb '#fff' -nf '#555' -sb '#ec826a' -sf '#555'")
     , ((modMask, xK_Print), spawn "ssur -u")
     , ((0, xK_Print), spawn "ssur")
     , ((0, xF86XK_AudioNext), spawn "cmus-remote --next")

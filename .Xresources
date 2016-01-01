@@ -44,7 +44,7 @@ URxvt.url-launcher:      /usr/bin/firefox
 *color6:      #00A4C1
 *color14:     #007693
 ! GRAY
-*color7:      #717682
+*color7:      #515662
 *color15:     #4f5563
 
 ! Xft settings

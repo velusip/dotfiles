@@ -1,28 +1,23 @@
 # .bashrc:  alias screenx='screen -c ~/.screenx'
 vbell off
 startup_message off
-defslowpaste 5
-defmonitor 1
+defslowpaste 5 #wait msec per character when pasting
 term screen-256color
 termcapinfo rxvt-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
-#screen -t startx startx
-#screen -t cmus cmus
+defmonitor off #default no monitor activity
+altscreen off #keep all output to current buffer
+hardstatus ignore #never display
+# bf 00  0:normal, 1:invert, 2:bright, 3:1+2, 4:bold, 5:3+4
+# 00 bf  0:blk, 1:red, 2:grn, 3:brn, 4:blu, 5:mag, 6:cya, 7:sil, 9:def
+sorendition 02 96
+caption always '%{= 00 rk}%w'
+defbce off #default background colour erase
+
+# comment out new screens and reload:  Ctrl-a:source .screenrc
+
+#screen -t startx startx # doesn't work anymore.  Thanks systemd
+screen -t cmus cmus
 #screen -t irssi irssi
 screen -t bash
 select 0
 
-altscreen off
-hardstatus ignore
-
-# enforce highlighting scheme in paired values
-# e.g. default:  sorendition 10 99
-# - first pair is background
-# - second pair is foreground
-# a = (0:normal, 1:invert, 2:bright, 3:both)
-# b = (0:normal, -:?, 5:?)
-# c,d = (0:black, 1:red, 2:green, 3:brown, 4:blue, 5:magenta, 6:cyan, 7:silver, 9:def)
-sorendition 00 05
-caption always '%{= 25 km}%w'
-bce off
-
-# reload:  Ctrl-a:source .screenrc
