@@ -68,7 +68,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     [ ((modMask, xK_b), sendMessage ToggleStruts)
     , ((modMask .|. shiftMask, xK_m), nextMatch History (return True))
     , ((modMask .|. shiftMask, xK_x), spawn "slock")
-    , ((modMask, xK_p), spawn "dmenu_run -i -fn 'xft:gohufont:pixelsize=14:Bold' -nb '#fff' -nf '#555' -sb '#ec826a' -sf '#555'")
+    , ((modMask, xK_p), spawn "dmenu_run -i -fn gohufont-14:bold -nb '#fff' -nf '#555' -sb '#ec826a' -sf '#555'")
     , ((modMask, xK_Print), spawn "ssur -u")
     , ((0, xK_Print), spawn "ssur")
     , ((0, xF86XK_AudioNext), spawn "cmus-remote --next")
