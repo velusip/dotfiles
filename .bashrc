@@ -9,6 +9,7 @@ alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa
 alias bd='. bd -s'
 alias screenx='screen -d -m -c ~/.screenrc; startx'
 alias 4k='mplayer -vo gl_nosw -lavdopts threads=8 -framedrop'
+alias steam='LD_PRELOAD='"'"'/usr/$LIB/libstdc++.so.6 /usr/$LIB/libgcc_s.so.1 /usr/$LIB/libxcb.so.1'"'"' steam'
 
 # Richard Bronosky's BASH script for migrating ACL grants:
 # usage:  mygrants --host=sourcehost --user=root --password=secret | grep user_in_transit | mysql --host=desthost --user=root --password=secret
