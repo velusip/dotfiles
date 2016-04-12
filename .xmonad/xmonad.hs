@@ -23,6 +23,7 @@ myConfig xmprocHandle = defaultConfig
     , layoutHook = myLayoutHook
     , manageHook = myManageHook
     , logHook = myLogHook xmprocHandle <+> historyHook
+    , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
     , modMask = mod4Mask -- Finland key
     , keys = myKeys <+> keys defaultConfig
     , terminal = "urxvt"
