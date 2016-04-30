@@ -1,0 +1,65 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+
+
+menubar
+{
+    background: lime !important;
+    text-shadow: none !important;
+}
+
+tab
+{
+    border-radius: 0px !important;
+    color: #4a544d !important;
+    text-shadow: none !important;
+    border: 1px solid #1a1e1c !important;
+    background: #ffffff !important;
+    padding-left: 10px !important;
+    font-family: 'Varela', sans-serif !important;
+}
+
+#nav-bar
+{
+    display: none !important;
+}
+
+.chromeclass-toolbar-additional
+{
+    display: none !important;
+}
+
+.tab-text
+{
+    font-family: 'Helvetica', sans-serif !important;
+}
+
+.tabs-newtab-button
+{
+    display: none !important
+}
+
+.tab-icon-image
+{
+    display: none !important;
+}
+
+.tab-close-button
+{
+    display: none !important;
+}
+
+.tab-throbber
+{
+    display: none !important;
+}
+
+.dropmarker-icon
+{
+    display: none !important;
+}
+
+.toolbar-primary
+{
+    border: 2px solid #1a1e1c !important;
+}

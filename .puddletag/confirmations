@@ -1,8 +1,0 @@
-[Config0]
-name = delete_files
-value = True
-description = Confirm when deleting files.
-[Config1]
-name = preview_mode
-value = True
-description = Confirm when exiting preview mode.

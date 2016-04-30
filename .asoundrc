@@ -19,6 +19,18 @@ pcm.nvidia
     card NVidia
 }
 
+pcm.loopin
+{
+    type plug
+    slave.pcm "hw:Loopback,0,0"
+}
+
+pcm.loopout
+{
+    type plug
+    slave.pcm "hw:Loopback,1,0"
+}
+
 pcm.dmix8
 {
     # output to all M-Audio Revolution71 hardware channels
@@ -57,11 +69,38 @@ pcm.ch71dup
     ttable.1.7 1   #left  <- side right
 }
 
+pcm.multi
+{
+    # Optional recording route. Only supports one source
+    # as multi is not compatible with dmix
+    type plug
+    slave.pcm
+    {
+        type multi
+        slaves
+        {
+            a { channels 2 pcm ch71dup }  # outgoing to get spread to all channels
+            b { channels 2 pcm loopin }  # loopback device for capture
+        }
+        bindings
+        {
+            0 { slave a channel 0 }
+            1 { slave a channel 1 }
+            2 { slave b channel 0 }
+            3 { slave b channel 1 }
+        }
+    }
+    ttable [
+        [ 1 0 1 0 ]   # left  -> a.left,  b.left
+        [ 0 1 0 1 ]   # right -> a.right, b.right
+    ]
+}
+
 pcm.duplex
 {
     # handle both input and output (muxless card)
     type asym
-    playback.pcm ch71dup # upmix first while we're stuck on stereo
+    playback.pcm ch71dup
     capture.pcm
     {
         type plug
@@ -79,34 +118,8 @@ pcm.!default
     }
 }
 
-defaults.ctl.card 2;
-defaults.pcm.card 2;
-
-#pcm.!default
-#{
-#    type plug
-#    slave.pcm
-#    {
-#        type multi
-#        slaves
-#        {
-#            a { channels 2 pcm duplex }  # the real device
-#            b { channels 2 pcm "hw:0,0" }  # the loopback driver
-#        }
-#        bindings
-#        {
-#            0 { slave a channel 0 }
-#            1 { slave a channel 1 }
-#            2 { slave b channel 0 }
-#            3 { slave b channel 1 }
-#        }
-#    }
-#    ttable [
-#        [ 1 0 1 0 ]   # left  -> a.left,  b.left
-#        [ 0 1 0 1 ]   # right -> a.right, b.right
-#    ]
-#}
-
+defaults.ctl.card 1;
+defaults.pcm.card 1;
 pcm.dsp0 duplex
 
 pcm.10to20
