@@ -8,9 +8,12 @@ set showcmd
 set showmatch
 set wildmenu
 set wildmode=longest:full,full
-set nonumber
-
-" #### indent
+" line numbers
+set relativenumber
+" move by virtual lines, except when using a count
+noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
+noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
+" indent
 set backspace=indent,eol,start  " powerful backspacing
 set expandtab
 set shiftwidth=4
@@ -19,22 +22,10 @@ set autoindent
 set cindent
 set cinkeys-=0#
 set indentkeys-=0#
-
-" #### fold
+" fold
 set foldmethod=marker
 set foldlevel=99
-" #### window split
-"  vertical <Ctrl+w> + <v>
-"horizontal <Ctrl+w> + <s>
-"      move <Ctrl+w> + <[hjkl]>
-"     close <Ctrl+w> + <q>
-"Optionally map out the w:
-"map <c-j> <c-w>j
-"map <c-k> <c-w>k
-"map <c-l> <c-w>l
-"map <c-h> <c-w>h
-
-" #### colour
+" colour
 filetype plugin indent on
 syntax on
 set hlsearch
@@ -43,9 +34,9 @@ if has('gui_running')
 endif
 hi ColorColumn ctermbg=magenta
 hi User1 ctermbg=darkcyan ctermfg=black
-" #### show 80-column breach
+" show 80-column breach
 call matchadd('ColorColumn', '\%81v', 100)
-" #### status bar
+" status bar
 set noruler                   "hide, using statusline instead
 set laststatus=2              "always show
 set statusline=
@@ -58,10 +49,7 @@ set statusline+=%1*%=%5l%*       "current row
 set statusline+=%1*/%L%*         "/total rows
 set statusline+=%1*%4v\ %*       "current column
 set statusline+=%1*0x%04B\ %*    "character under cursor
-
-
-
-" #### paste mode
+" paste mode
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 set showmode
@@ -70,20 +58,23 @@ if has('gui_running')
     map <S-Insert> <MiddleMouse>
     map! <S-Insert> <MiddleMouse>
 endif
-
-" #### digraphs
-" inoremap <expr>  <C-K>   HUDG_GetDigraph()
-inoremap <expr> <C-K> ShowDigraphs()
-function! ShowDigraphs ()
-    digraphs
-    call getchar()
-    return "\<C-K>"
-endfunction
-
-" #### visual block <C-v> dragging
+" window split: <Ctrl+w><v>ertical, <Ctrl+w><s>upine, <Ctrl+w><q>uit, <Ctrl+w><[hjkl]>
+nmap <c-j> <c-w>j
+nmap <c-k> <c-w>k
+nmap <c-l> <c-w>l
+nmap <c-h> <c-w>h
+" tab manipulation
+nnoremap th  :tabfirst<CR>
+nnoremap tj  :tabnext<CR>
+nnoremap tk  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tt  :tabedit<Space>
+nnoremap tn  :tabnew<Space>
+nnoremap tm  :tabm<Space>
+nnoremap td  :tabclose<CR>
+" visual block <C-v> dragging (used with Ctrl+v)
 vmap <expr> <S-LEFT> DVB_Drag('left')
 vmap <expr> <S-RIGHT> DVB_Drag('right')
 vmap <expr> <S-DOWN> DVB_Drag('down')
 vmap <expr> <S-UP> DVB_Drag('up')
 vmap <expr> D DVB_Duplicate()
-
