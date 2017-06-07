@@ -10,13 +10,14 @@ Config { font = "-*-*-*-*-*-*-14-*-*-*-*-*-*-uni"
        , pickBroadest = False
        , allDesktops = True
        , overrideRedirect = False
-       , commands = [ Run Cpu ["-t","c<total>","-L","10","-H","60","--normal","#073","--high","#b33","--low","#06d"]  10
-                    , Run Memory ["-t","m<usedratio>","-L","20","-H","70","--normal","#073","--high","#811","--low","#06d"]  50
+       , commands = [ Run Cpu ["-t","c<total>","-L","10","-H","60","--normal","#073","--high","#b33","--low","#06d"]  5
+                    , Run Memory ["-t","m<usedratio>","-L","20","-H","70","--normal","#073","--high","#811","--low","#06d"]  20
+                    , Run DynNetwork ["-t","r<rx>t<tx>","-L","90","-H","2000","--normal","#073","--high","#811","--low","#06d"]  4
                     , Run Date "%a %b %_d %H%Mh" "date"  600
                     , Run Com "sh" ["/home/velusip/bin/npcmus"] "npcmus"  5
                     , Run StdinReader
                     ]
     , sepChar = "%"
     , alignSep = "}{"
-    , template = "%StdinReader% }{ %npcmus% <fc=#a90>★</fc> %cpu%%memory% <fc=#0ac>★</fc> %date% <fc=#d6c>★</fc>  "
+    , template = "%StdinReader% }{ %npcmus% <fc=#a90>★</fc> %cpu%%memory%%dynnetwork% <fc=#0ac>★</fc> %date% <fc=#d6c>★</fc>  "
     }
