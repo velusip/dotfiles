@@ -1,76 +1,50 @@
 import XMonad
-import Control.Monad
+import XMonad.Config.Desktop -- default struts management, adds mod+b
 import XMonad.Hooks.DynamicLog -- http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Hooks-DynamicLog.html
-import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName -- for Java
--- import XMonad.Hooks.ICCCMFocus -- takeTopFocus
 import XMonad.Hooks.EwmhDesktops -- for Java
-import XMonad.Layout.NoBorders(noBorders)
-import XMonad.Layout.Spacing
-import XMonad.Util.WorkspaceCompare
 import XMonad.Util.Run(spawnPipe)
-import XMonad.Actions.GroupNavigation -- http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Actions-GroupNavigation.html
+import Control.Monad
 import Graphics.X11.ExtraTypes.XF86 -- http://xmonad.org/xmonad-docs/X11/Graphics-X11-ExtraTypes-XF86.html
 import System.IO
 import qualified Data.Map as M
 
 main = do
-    xmproc <- spawnPipe "xmobar ~/.xmobarrc"
-    xmonad $ myConfig xmproc
+    dyninput <- spawnPipe "xmobar ~/.xmobarrc"
+    xmonad $ desktopConfig
+        { terminal = "st"
+        , modMask = mod4Mask -- Finland key
+        , focusFollowsMouse = True
+        , borderWidth = 0
+--        , normalBorderColor = "#000001"
+--        , focusedBorderColor = "#ffa90a" -- orange
+        , keys = myKeys <+> keys desktopConfig
+--        , handleEventHook = handleEventHook desktopConfig <+> fullscreenEventHook
+        , manageHook = manageHook desktopConfig
+        , logHook = dynamicLogWithPP $ myPP dyninput
+        , startupHook = ewmhDesktopsStartup >> setWMName "LG3D" -- for some window creation issues
+        }
 
-myConfig xmprocHandle = defaultConfig
-    { startupHook = myStartupHook
-    , layoutHook = myLayoutHook
-    , manageHook = myManageHook
-    , logHook = myLogHook xmprocHandle <+> historyHook
-    , handleEventHook = handleEventHook defaultConfig <+> fullscreenEventHook
-    , modMask = mod4Mask -- Finland key
-    , keys = myKeys <+> keys defaultConfig
-    , terminal = "urxvt"
-    , borderWidth = 0
---    , normalBorderColor = "#000001"
---    , focusedBorderColor = "#ffa90a" -- orange
-    , focusFollowsMouse = True
-    }
-
-myStartupHook = ewmhDesktopsStartup >> setWMName "LG3D" -- for some window creation issues
-
-myLayoutHook = avoidStruts(tiled ||| Mirror tiled ||| noBorders Full)
-
-tiled = noBorders $ smartSpacing 8 $ Tall 1 0.03 0.5
-
-myManageHook = composeAll
-    [ className =? "Gimp" --> doFloat
-    , (className =? "Firefox" <&&> resource =? "Dialog") --> doFloat
-    , className =? "Steam" --> doFloat
-    , manageDocks
-    ]
-
-myLogHook :: Handle -> X ()
--- myLogHook xmproc = takeTopFocus >> dynamicLogWithPP defaultPP
-myLogHook xmproc = dynamicLogWithPP defaultPP
-    { ppCurrent         = xmobarColor "#545" "#c7e0e5"
-    , ppVisible         = wrap "(" ")"
-    , ppHidden          = id
+myPP h = defaultPP
+    { ppCurrent = xmobarColor "#545" "#c7e0e5"
+    , ppVisible = wrap "(" ")"
+    , ppHidden = id
     , ppHiddenNoWindows = const ""
-    , ppUrgent          = xmobarColor "red" "black"
-    , ppSep             = " ★ " -- requires UTF-8 type installed
-    , ppWsSep           = ""
-    , ppTitle           = xmobarRainbow . shorten 64
-    , ppLayout          = const "" -- suppress layout info
-    , ppOrder           = id
-    , ppOutput          = hPutStrLn xmproc
-    , ppSort            = getSortByIndex
-    , ppExtras          = []
+    , ppUrgent = xmobarColor "red" "black"
+    , ppSep = " ★ " -- requires UTF-8 type installed
+    , ppWsSep = ""
+    , ppTitle = xmobarRainbow . shorten 64
+    , ppLayout = const "" -- suppress layout info
+    , ppOrder = id
+    , ppOutput = hPutStrLn h
+    , ppExtras = []
     }
 
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
-    [ ((modMask, xK_b), sendMessage ToggleStruts)
-    , ((modMask .|. shiftMask, xK_m), nextMatch History (return True))
-    , ((modMask .|. shiftMask, xK_x), spawn "slock")
+    [ ((modMask .|. shiftMask, xK_x), spawn "slock")
     , ((modMask, xK_p), spawn "dmenu_run -i -fn gohufont-14:bold -nb '#fff' -nf '#555' -sb '#ec826a' -sf '#555'")
-    , ((modMask, xK_Print), spawn "ssur -u")
+--    , ((modMask, xK_Print), spawn "ssur -u")
     , ((0, xK_Print), spawn "ssur")
     , ((0, xF86XK_AudioNext), spawn "cmus-remote --next")
     , ((0, xF86XK_AudioPlay), spawn "cmus-remote --pause")
