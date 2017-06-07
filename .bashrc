@@ -2,6 +2,7 @@
 [ -z "$PS1" ] && return
 
 #alias
+alias ls='ls --color=auto'
 alias lsg='ls --group-directories-first'
 alias lsc='ls --color=never'
 alias bc='bc -l'
@@ -9,7 +10,7 @@ alias grep='grep --color=auto'
 alias ssh='eval $(/usr/bin/keychain --eval --agents ssh -Q --quiet ~/.ssh/id_rsa) && ssh'
 alias bd='. bd -s'
 alias screenx='screen -d -m -c ~/.screenrc; startx'
-alias 4k='mplayer -vo gl_nosw -lavdopts threads=8 -framedrop'
+alias 4k='mplayer -ao pulse -vo gl_nosw -lavdopts threads=8 -framedrop'
 
 # Richard Bronosky's BASH script for migrating ACL grants:
 # usage:  mygrants --host=sourcehost --user=root --password=secret | grep user_in_transit | mysql --host=desthost --user=root --password=secret
@@ -44,4 +45,8 @@ f2c()
     echo "(5/9)*(${1}-32)" | bc
 }
 
+# ".bash_profile"
 export ANDROID_HOME=/opt/android-sdk
+export GOPATH=~/workbench/go
+export BROWSER=/bin/firefox
+export DISPLAY=:0
