@@ -4,7 +4,7 @@
 #sudo loadkeys -q ~/.consolevu.map&
 #eval `keychain --eval --agents ssh id_rsa`
 
-PATH=/home/velusip/bin:$PATH
+PATH=$PATH:/home/velusip/bin
 
 #prompt
 PS1='[\u@\h \W]\$ '
