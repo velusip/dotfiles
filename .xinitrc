@@ -37,9 +37,6 @@ xrdb -merge ~/.Xresources
 # set trayer beside xmobar
 exec trayer --edge top --align right --SetDockType true --SetPartialStrut false --expand false --widthtype percent --width 4.1 --transparent true --alpha 0 --tint 0xFEF9EC --heighttype pixel --height 18 &
 
-# terminal daemon
-exec urxvtd &
-
 # call wm
 exec xmonad
 
