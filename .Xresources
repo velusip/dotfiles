@@ -1,97 +1,42 @@
-! urxvt appearance
-!URxvt.termName:    rxvt-256color
-URxvt.loginShell:  False
-URxvt.scrollBar:   False
-URxvt.border:      False
+*border:False
+*depth:32
+*background:rgba:ff00/ff00/ff00/f800
+!until I can find a good trutype to match gohu... precious gohu  font:-*-gohufont-medium-*-*-*-14-*-*-*-*-*-*-*
 
-! #### Fake transparency settings
-! URxvt.transparent: False
-! URxvt.shading:     0
-
-! #### Real transparency settings
-urxvt*depth: 32
-urxvt*background: rgba:ff00/ff00/ff00/d800
-
-URxvt.boldFont:    -*-gohufont-bold-*-*-*-14-*-*-*-*-*-*-*
-URxvt.font:        -*-gohufont-medium-*-*-*-14-*-*-*-*-*-*-*
-URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
-URxvt.perl-ext-common:   default,matcher
-URxvt.matcher.button:    2
-URxvt.url-launcher:      /usr/bin/firefox
-
-! colours -- full colour format:  rgba:0000/0000/0000/ffff
-*highlightColor:     Black
-*highlightTextColor: White
-*background:  #FEF9EC
-*foreground:  #3D424E
-!*colorBD:     #d7d7d7
-!*colorIT:     #87af5f
-!*colorUL:     #87afd7
-*cursorColor: #007693
+! these colours are awful
+*highlightColor:Black
+*highlightTextColor:White
+*foreground:#FEF9EC
+*background:#3D424E
+*cursorColor:#007693
 ! BLACK
-*color0:      #252114
-!*color8:      #414858
-*color8:      #313848
+*color0:#252114
+*color8:#313848
 ! RED
-*color1:      #E75C58
-*color9:      #B22B31
+*color1:#E75C58
+*color9:#B22B31
 ! GREEN
-*color2:      #00A250
-*color10:     #007427
+*color2:#00A250
+*color10:#007427
 ! YELLOW
-*color3:      #A08A00
-*color11:     #715F00
+*color3:#A08A00
+*color11:#715F00
 ! BLUE
-*color4:      #208FFB
-*color12:     #0065CA
+*color4:#208FFB
+*color12:#0065CA
 ! MAGENTA
-*color5:      #D160C4
-*color13:     #A03196
+*color5:#D160C4
+*color13:#A03196
 ! CYAN
-*color6:      #00A4C1
-*color14:     #007693
+*color6:#00A4C1
+*color14:#007693
 ! GRAY
-*color7:      #515662
-*color15:     #4f5563
-
-!URxvt*color0: #debda8
-!URxvt*color1: #d3a993
-!URxvt*color2: #c89779
-!URxvt*color3: #b6826c
-!URxvt*color4: #a36f5a
-!URxvt*color5: #8b817f
-!URxvt*color6: #a99d99
-!URxvt*color7: #8e5f4d
-!URxvt*color8: #bab0b0
-!URxvt*color9: #706d68
-!URxvt*color10: #cac5c1
-!URxvt*color11: #635854
-!URxvt*color12: #2f2726
-!URxvt*color13: #1d140d
-!URxvt*color14: #574038
-!URxvt*color15: #040402
-
-!URxvt*color0: #404d49
-!URxvt*color1: #131b11
-!URxvt*color2: #5a5529
-!URxvt*color3: #393a28
-!URxvt*color4: #497a7e
-!URxvt*color5: #87aab0
-!URxvt*color6: #6a919a
-!URxvt*color7: #676e67
-!URxvt*color8: #aa8461
-!URxvt*color9: #1d2933
-!URxvt*color10: #5b634c
-!URxvt*color11: #395f62
-!URxvt*color12: #937a75
-!URxvt*color13: #a27148
-!URxvt*color14: #58a1aa
-!URxvt*color15: #727a87
-!
+*color7:#515662
+*color15:#4f5563
 
 ! Xft settings
-Xft.dpi:        96
-Xft.antialias:  true
-Xft.hinting:    true
-Xft.hintstyle:  hintfull
-Xft.rgba:       rgb
+Xft.dpi:91
+Xft.antialias:true
+Xft.hinting:true
+Xft.hintstyle:hintfull
+Xft.rgba:rgb

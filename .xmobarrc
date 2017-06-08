@@ -1,6 +1,6 @@
 Config { font = "-*-*-*-*-*-*-14-*-*-*-*-*-*-uni"
-       , bgColor = "#FEF9EC"
-       , fgColor = "#566"
+       , fgColor = "#FEF9EC"
+       , bgColor = "#566"
        , borderColor = "white"
        , border = NoBorder
        , hideOnStart = False
@@ -10,9 +10,9 @@ Config { font = "-*-*-*-*-*-*-14-*-*-*-*-*-*-uni"
        , pickBroadest = False
        , allDesktops = True
        , overrideRedirect = False
-       , commands = [ Run Cpu ["-t","c<total>","-L","10","-H","60","--normal","#073","--high","#b33","--low","#06d"]  5
-                    , Run Memory ["-t","m<usedratio>","-L","20","-H","70","--normal","#073","--high","#811","--low","#06d"]  20
-                    , Run DynNetwork ["-t","r<rx>t<tx>","-L","90","-H","2000","--normal","#073","--high","#811","--low","#06d"]  4
+       , commands = [ Run Cpu ["-t","c<total>","-L","10","-H","60","--normal","#a90","--high","#d6c","--low","#0ac"]  5
+                    , Run Memory ["-t","m<usedratio>","-L","20","-H","70","--normal","#a90","--high","#d6c","--low","#0ac"]  20
+                    , Run DynNetwork ["-t","r<rx>t<tx>","-L","90","-H","2000","--normal","#a90","--high","#d6c","--low","#0ac"]  4
                     , Run Date "%a %b %_d %H%Mh" "date"  600
                     , Run Com "sh" ["/home/velusip/bin/npcmus"] "npcmus"  5
                     , Run StdinReader

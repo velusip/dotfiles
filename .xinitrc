@@ -35,7 +35,7 @@ xrdb -merge ~/.Xresources
 [ -f ~/.xprofile ] && source ~/.xprofile
 
 # set trayer beside xmobar
-exec trayer --edge top --align right --SetDockType true --SetPartialStrut false --expand false --widthtype percent --width 4.1 --transparent true --alpha 0 --tint 0xFEF9EC --heighttype pixel --height 18 &
+exec trayer --edge top --align right --SetDockType true --SetPartialStrut false --expand false --widthtype percent --width 4.1 --transparent true --alpha 0 --tint 0x556666 --heighttype pixel --height 18 &
 
 # call wm
 exec xmonad
