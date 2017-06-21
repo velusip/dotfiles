@@ -53,8 +53,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((0, xF86XK_AudioRaiseVolume), spawn "cmus-remote --volume +10%")
     , ((0, xF86XK_AudioLowerVolume), spawn "cmus-remote --volume -10%")
     , ((0, xF86XK_Reload), spawn "cmus-remote --shuffle")
-    , ((0, xF86XK_Forward), spawn "cmus-remote --seek +5")
-    , ((0, xF86XK_Back), spawn "cmus-remote --seek -5")
+    , ((0, xK_Cancel), spawn "songrating.sh 1")
+    , ((0, xF86XK_Back), spawn "songrating.sh 2")
+    , ((0, xF86XK_HomePage), spawn "songrating.sh 3")
+    , ((0, xF86XK_Forward), spawn "songrating.sh 4")
+    , ((0, xF86XK_Favorites), spawn "songrating.sh 5")
     ]
 
 -- | for colourizing xmobar ppTitle
