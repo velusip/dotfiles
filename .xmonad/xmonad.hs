@@ -10,16 +10,15 @@ import System.IO
 import qualified Data.Map as M
 
 main = do
+    spawn "/home/velusip/bin/wallpaper"
+    spawn "trayer --edge top --align right --SetDockType true --SetPartialStrut false --expand false --widthtype percent --width 4.1 --transparent true --alpha 0 --tint 0x556666 --heighttype pixel --height 18"
     dyninput <- spawnPipe "xmobar ~/.xmobarrc"
     xmonad $ desktopConfig
         { terminal = "st"
         , modMask = mod4Mask -- Finland key
         , focusFollowsMouse = True
         , borderWidth = 0
---        , normalBorderColor = "#000001"
---        , focusedBorderColor = "#ffa90a" -- orange
         , keys = myKeys <+> keys desktopConfig
---        , handleEventHook = handleEventHook desktopConfig <+> fullscreenEventHook
         , manageHook = manageHook desktopConfig
         , logHook = dynamicLogWithPP $ myPP dyninput
         , startupHook = ewmhDesktopsStartup >> setWMName "LG3D" -- for some window creation issues
@@ -43,21 +42,20 @@ myPP h = defaultPP
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     [ ((modMask .|. shiftMask, xK_x), spawn "slock")
-    , ((modMask, xK_p), spawn "dmenu_run -i -fn gohufont-14:bold -nb '#fff' -nf '#555' -sb '#ec826a' -sf '#555'")
---    , ((modMask, xK_Print), spawn "ssur -u")
-    , ((0, xK_Print), spawn "ssur")
+    , ((modMask, xK_p), spawn "dmenu_run -i -nb '#fff' -nf '#555' -sb '#ec826a' -sf '#555'")
+    , ((0, xK_Print), spawn "/home/velusip/bin/ssur")
     , ((0, xF86XK_AudioNext), spawn "cmus-remote --next")
     , ((0, xF86XK_AudioPlay), spawn "cmus-remote --pause")
     , ((0, xF86XK_AudioPrev), spawn "cmus-remote --prev")
     , ((0, xF86XK_AudioStop), spawn "cmus-remote --stop")
-    , ((0, xF86XK_AudioRaiseVolume), spawn "cmus-remote --volume +10%")
-    , ((0, xF86XK_AudioLowerVolume), spawn "cmus-remote --volume -10%")
+    , ((0, xF86XK_AudioRaiseVolume), spawn "cmus-remote --volume +4%")
+    , ((0, xF86XK_AudioLowerVolume), spawn "cmus-remote --volume -4%")
     , ((0, xF86XK_Reload), spawn "cmus-remote --shuffle")
-    , ((0, xK_Cancel), spawn "songrating.sh 1")
-    , ((0, xF86XK_Back), spawn "songrating.sh 2")
-    , ((0, xF86XK_HomePage), spawn "songrating.sh 3")
-    , ((0, xF86XK_Forward), spawn "songrating.sh 4")
-    , ((0, xF86XK_Favorites), spawn "songrating.sh 5")
+    , ((0, xK_Cancel), spawn "/home/velusip/bin/ratingcmus -s 1")
+    , ((0, xF86XK_Back), spawn "/home/velusip/bin/ratingcmus -s 2")
+    , ((0, xF86XK_HomePage), spawn "/home/velusip/bin/ratingcmus -s 3")
+    , ((0, xF86XK_Forward), spawn "/home/velusip/bin/ratingcmus -s 4")
+    , ((0, xF86XK_Favorites), spawn "/home/velusip/bin/ratingcmus -s 5")
     ]
 
 -- | for colourizing xmobar ppTitle
