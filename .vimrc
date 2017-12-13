@@ -15,9 +15,11 @@ noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j')
 noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k')
 " indent
 set backspace=indent,eol,start  " powerful backspacing
+set tabstop=8
+set softtabstop=0
 set expandtab
 set shiftwidth=4
-set softtabstop=4
+set smarttab
 set autoindent
 set cindent
 set cinkeys-=0#
