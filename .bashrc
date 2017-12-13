@@ -1,5 +1,22 @@
+# shell-only stuff
 # Check for an interactive session
 [ -z "$PS1" ] && return
+PS1='[\u@\h \W]\$ '
+
+#ls colour codes
+#eval `dircolors -b`
+[ -f ~/.config/dircolors.ansi-universal ] && eval `dircolors ~/.config/dircolors.ansi-universal`
+TERM=screen-256color
+#grep color codes
+GREP_COLOR="1;33"
+#less colour codes
+LESS_TERMCAP_mb=$'\e[1;31m'
+LESS_TERMCAP_md=$'\e[1;31m'
+LESS_TERMCAP_me=$'\e[0m'
+LESS_TERMCAP_se=$'\e[0m'
+LESS_TERMCAP_so=$'\e[1;44;33m'
+LESS_TERMCAP_ue=$'\e[0m'
+LESS_TERMCAP_us=$'\e[1;32m'
 
 #alias
 alias ls='ls --color=auto'
@@ -45,8 +62,3 @@ f2c()
     echo "(5/9)*(${1}-32)" | bc
 }
 
-# ".bash_profile"
-export ANDROID_HOME=/opt/android-sdk
-export GOPATH=~/workbench/go
-export BROWSER=/bin/firefox
-export DISPLAY=:0

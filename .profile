@@ -1,38 +1,15 @@
-# source .bashrc on login & interactive
-. $HOME/.bashrc
+# environment stuff, usually sourced during logins
 
-#sudo loadkeys -q ~/.consolevu.map&
-#eval `keychain --eval --agents ssh id_rsa`
-
-PATH=$PATH:/home/velusip/bin
-
-#prompt
-PS1='[\u@\h \W]\$ '
-eval `dircolors -b`
-
-#grep color codes
-export GREP_COLOR="1;33"
-
-#less colour codes
-export LESS_TERMCAP_mb=$'\e[1;31m'
-export LESS_TERMCAP_md=$'\e[1;31m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[1;44;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;32m'
-
-#language
+umask 027
 export LANG=en_CA.UTF-8
-
-#x
-export DISPLAY=:0
-
-#default editor
+for x in /home/velusip/bin; do
+  case ":$PATH:" in
+    *":$x:"*) :;; # already there
+    *) PATH="$x:$PATH";;
+  esac
+done
 export EDITOR="/usr/bin/vim"
 
-#default perms
-umask 027
-
-#mozilla acceleration
-export MOZ_USE_OMTC=1
+export DISPLAY=:0
+export BROWSER=/bin/firefox
+export ANDROID_HOME=/opt/android-sdk

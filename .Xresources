@@ -1,13 +1,12 @@
 *border:False
 *depth:32
-*background:rgba:ff00/ff00/ff00/f800
-!until I can find a good trutype to match gohu... precious gohu  font:-*-gohufont-medium-*-*-*-14-*-*-*-*-*-*-*
 
 ! these colours are awful
 *highlightColor:Black
 *highlightTextColor:White
-*foreground:#FEF9EC
-*background:#3D424E
+*background:rgb:fe00/f900/ec00
+!/f800
+*foreground:#3D424E
 *cursorColor:#007693
 ! BLACK
 *color0:#252114

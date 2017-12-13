@@ -1,2 +1,18 @@
+# refresh rate
+xrandr --rate 144
+
 # window effects
-compton --config ~/.config/compton.conf &
+#compton --config ~/.config/compton.conf &
+
+# dpms screen blanking interval
+xset s 7200 7200
+
+# set mouse to dull (default 1/2 4) and curser
+xset m 0 0
+xsetroot -cursor_name left_ptr
+
+# add font path
+#xset +fp /usr/share/fonts/local
+xset +fp /usr/share/fonts/misc
+xset fp rehash
+
