@@ -1,48 +1,45 @@
 import XMonad
 import XMonad.Config.Desktop -- default struts management, adds mod+b
+import XMonad.Layout.NoBorders -- for smartBorders (no border when lonely or floating)
+import XMonad.Layout.Spacing -- window gaps, for smartSpacing
 import XMonad.Hooks.DynamicLog -- http://xmonad.org/xmonad-docs/xmonad-contrib/XMonad-Hooks-DynamicLog.html
-import XMonad.Hooks.SetWMName -- for Java
-import XMonad.Hooks.EwmhDesktops -- for Java
 import XMonad.Util.Run(spawnPipe)
 import Control.Monad
 import Graphics.X11.ExtraTypes.XF86 -- http://xmonad.org/xmonad-docs/X11/Graphics-X11-ExtraTypes-XF86.html
 import System.IO
+import qualified XMonad.StackSet as W
 import qualified Data.Map as M
 
 main = do
-    spawn "/home/velusip/bin/wallpaper"
-    spawn "trayer --edge top --align right --SetDockType true --SetPartialStrut false --expand false --widthtype percent --width 4.1 --transparent true --alpha 0 --tint 0x556666 --heighttype pixel --height 18"
-    dyninput <- spawnPipe "xmobar ~/.xmobarrc"
-    xmonad $ desktopConfig
+    dyninput <- spawnPipe "xmobar ~/.xmonad/xmobar.hs"
+    xmonad desktopConfig
         { terminal = "st"
-        , modMask = mod4Mask -- Finland key
+        , modMask = mod4Mask -- Super_L key
         , focusFollowsMouse = True
         , borderWidth = 0
+        , normalBorderColor = "#fef9ec"
+        , focusedBorderColor = "#a90"
+        , layoutHook = smartBorders $ layoutHook desktopConfig
         , keys = myKeys <+> keys desktopConfig
         , manageHook = manageHook desktopConfig
         , logHook = dynamicLogWithPP $ myPP dyninput
-        , startupHook = ewmhDesktopsStartup >> setWMName "LG3D" -- for some window creation issues
         }
 
+-- see https://hackage.haskell.org/package/xmonad-contrib-0.13/docs/src/XMonad-Hooks-DynamicLog.html
 myPP h = defaultPP
-    { ppCurrent = xmobarColor "#545" "#c7e0e5"
-    , ppVisible = wrap "(" ")"
-    , ppHidden = id
-    , ppHiddenNoWindows = const ""
+    { ppCurrent = xmobarColor "#566" "#6ef"
     , ppUrgent = xmobarColor "red" "black"
-    , ppSep = " ★ " -- requires UTF-8 type installed
-    , ppWsSep = ""
+    , ppSep = " * "
+    , ppWsSep = "" -- no spacing between workspace numbers
     , ppTitle = xmobarRainbow . shorten 64
-    , ppLayout = const "" -- suppress layout info
-    , ppOrder = id
+    , ppLayout = const "" -- no layout info
     , ppOutput = hPutStrLn h
-    , ppExtras = []
     }
 
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     [ ((modMask .|. shiftMask, xK_x), spawn "slock")
-    , ((modMask, xK_p), spawn "dmenu_run -i -nb '#fff' -nf '#555' -sb '#ec826a' -sf '#555'")
+    , ((modMask, xK_p), spawn "dmenu_run -i -nb '#fef9ec' -nf '#566' -sb '#6ef' -sf '#566' -fn 'Gohu Gohufont:pixelsize=14'")
     , ((0, xK_Print), spawn "/home/velusip/bin/ssur")
     , ((0, xF86XK_AudioNext), spawn "cmus-remote --next")
     , ((0, xF86XK_AudioPlay), spawn "cmus-remote --pause")
@@ -51,12 +48,17 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) = M.fromList $
     , ((0, xF86XK_AudioRaiseVolume), spawn "cmus-remote --volume +4%")
     , ((0, xF86XK_AudioLowerVolume), spawn "cmus-remote --volume -4%")
     , ((0, xF86XK_Reload), spawn "cmus-remote --shuffle")
-    , ((0, xK_Cancel), spawn "/home/velusip/bin/ratingcmus -s 1")
-    , ((0, xF86XK_Back), spawn "/home/velusip/bin/ratingcmus -s 2")
-    , ((0, xF86XK_HomePage), spawn "/home/velusip/bin/ratingcmus -s 3")
-    , ((0, xF86XK_Forward), spawn "/home/velusip/bin/ratingcmus -s 4")
-    , ((0, xF86XK_Favorites), spawn "/home/velusip/bin/ratingcmus -s 5")
+    , ((0, xK_Cancel), spawn "/home/velusip/bin/trackskip -r 1")
+    , ((0, xF86XK_Back), spawn "/home/velusip/bin/trackskip -r 2")
+    , ((0, xF86XK_HomePage), spawn "/home/velusip/bin/trackskip -r 3")
+    , ((0, xF86XK_Forward), spawn "/home/velusip/bin/trackskip -r 4")
+    , ((0, xF86XK_Favorites), spawn "/home/velusip/bin/trackskip -r 5")
     ]
+-- example of running multiple commands per keybind
+--    ++
+--    [ ((m .|. modMask, k), sequence_ [spawn $ "workspacer " ++ show k, windows $ f i]) | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+--    , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]
+--    ]
 
 -- | for colourizing xmobar ppTitle
 xmobarRainbow :: String -> String
