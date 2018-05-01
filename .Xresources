@@ -1,11 +1,10 @@
 *border:False
 *depth:32
-
-! these colours are awful
+*font:Gohu Gohufont:pixelsize=14
+*facesize:14
 *highlightColor:Black
 *highlightTextColor:White
-*background:rgb:fe00/f900/ec00
-!/f800
+*background:#FEF9EC
 *foreground:#3D424E
 *cursorColor:#007693
 ! BLACK
@@ -34,8 +33,10 @@
 *color15:#4f5563
 
 ! Xft settings
-Xft.dpi:91
-Xft.antialias:true
-Xft.hinting:true
-Xft.hintstyle:hintfull
-Xft.rgba:rgb
+Xft.lcdfilter: lcddefault
+Xft.antialias: false
+Xft.autohint: 0
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.dpi: 96
