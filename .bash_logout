@@ -1,4 +1,3 @@
 >~/.bash_history
-killall -u velusip
-sync;
-
+#sync;
+# don't sync or kill on logout -- it causes more problems than it solves.
