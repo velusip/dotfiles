@@ -12,7 +12,13 @@ xset m 0 0
 xsetroot -cursor_name left_ptr
 
 # add font path
-#xset +fp /usr/share/fonts/local
+xset +fp /usr/share/fonts/100dpi
+xset +fp /usr/share/fonts/75dpi
+xset +fp /usr/share/fonts/cantarell
+xset +fp /usr/share/fonts/gsfonts
+xset +fp /usr/share/fonts/local
 xset +fp /usr/share/fonts/misc
+xset +fp /usr/share/fonts/noto
+xset +fp /usr/share/fonts/TTF
 xset fp rehash
 
