@@ -1,0 +1,10 @@
+set aaa_mode=all
+set shuffle=true
+set follow=true
+set play_library=true
+set repeat=true
+set display_artist_sort_name=false
+set output_plugin=pulse
+set status_display_program=trackskip
+
+
