@@ -1,0 +1,44 @@
+{
+  "info": {
+    "name": "Featuring"
+  }, 
+  "Func2": {
+    "fields": [
+      "title"
+    ], 
+    "arguments": [
+      "ft.", 
+      "Featuring", 
+      false, 
+      false
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }, 
+  "Func1": {
+    "fields": [
+      "title"
+    ], 
+    "arguments": [
+      "Feat ", 
+      "Featuring ", 
+      false, 
+      false
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }, 
+  "Func0": {
+    "fields": [
+      "title"
+    ], 
+    "arguments": [
+      "Feat.", 
+      "Featuring", 
+      false, 
+      false
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }
+}

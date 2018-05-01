@@ -1,0 +1,15 @@
+{
+  "info": {
+    "name": "split credit"
+  }, 
+  "Func0": {
+    "fields": [
+      "composer"
+    ], 
+    "arguments": [
+      ", "
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "split_by_sep"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "info": {
+    "name": "comma artists"
+  }, 
+  "Func0": {
+    "fields": [
+      "artist"
+    ], 
+    "func_name": "replace", 
+    "module": "puddlestuff.functions", 
+    "arguments": [
+      ",", 
+      " &", 
+      "False", 
+      "False"
+    ]
+  }
+}

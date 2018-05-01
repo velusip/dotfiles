@@ -1,0 +1,18 @@
+{
+  "info": {
+    "name": "--"
+  }, 
+  "Func0": {
+    "fields": [
+      "track"
+    ], 
+    "arguments": [
+      "-", 
+      "", 
+      false, 
+      false
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }
+}

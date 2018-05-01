@@ -1,0 +1,31 @@
+{
+  "info": {
+    "name": "Ver."
+  }, 
+  "Func1": {
+    "fields": [
+      "title"
+    ], 
+    "func_name": "replace", 
+    "module": "puddlestuff.functions", 
+    "arguments": [
+      "Feat\\.", 
+      "Featuring", 
+      "False", 
+      "False"
+    ]
+  }, 
+  "Func0": {
+    "fields": [
+      "title"
+    ], 
+    "func_name": "replace", 
+    "module": "puddlestuff.functions", 
+    "arguments": [
+      "Ver.", 
+      "Version", 
+      "False", 
+      "False"
+    ]
+  }
+}

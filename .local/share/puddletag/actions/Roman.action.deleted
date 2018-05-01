@@ -1,0 +1,31 @@
+{
+  "info": {
+    "name": "Roman"
+  }, 
+  "Func1": {
+    "fields": [
+      "title"
+    ], 
+    "func_name": "replace", 
+    "module": "puddlestuff.functions", 
+    "arguments": [
+      "Iii", 
+      "III", 
+      "False", 
+      "False"
+    ]
+  }, 
+  "Func0": {
+    "fields": [
+      "title"
+    ], 
+    "func_name": "replace", 
+    "module": "puddlestuff.functions", 
+    "arguments": [
+      "Ii", 
+      "II", 
+      "False", 
+      "False"
+    ]
+  }
+}

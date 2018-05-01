@@ -1,0 +1,108 @@
+{
+  "info": {
+    "name": "brackets"
+  }, 
+  "Func2": {
+    "fields": [
+      "title"
+    ], 
+    "arguments": [
+      " ]", 
+      ")", 
+      false, 
+      false
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }, 
+  "Func1": {
+    "fields": [
+      "title"
+    ], 
+    "arguments": [
+      "( ", 
+      "(", 
+      false, 
+      false
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }, 
+  "Func0": {
+    "fields": [
+      "title"
+    ], 
+    "arguments": [
+      " )", 
+      ")", 
+      false, 
+      false
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }, 
+  "Func7": {
+    "fields": [
+      "title"
+    ], 
+    "arguments": [
+      "\\($", 
+      "\\)", 
+      false
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replaceWithReg"
+  }, 
+  "Func6": {
+    "fields": [
+      "title"
+    ], 
+    "arguments": [
+      "~", 
+      "(", 
+      false, 
+      false
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }, 
+  "Func5": {
+    "fields": [
+      "title"
+    ], 
+    "arguments": [
+      "]", 
+      ")", 
+      false, 
+      false
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }, 
+  "Func4": {
+    "fields": [
+      "title"
+    ], 
+    "arguments": [
+      "[", 
+      "(", 
+      false, 
+      false
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }, 
+  "Func3": {
+    "fields": [
+      "title"
+    ], 
+    "arguments": [
+      "[ ", 
+      "(", 
+      false, 
+      false
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }
+}

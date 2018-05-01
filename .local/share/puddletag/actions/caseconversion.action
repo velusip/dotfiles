@@ -1,0 +1,108 @@
+{
+  "info": {
+    "name": "Standard"
+  }, 
+  "Func2": {
+    "fields": [
+      "__all"
+    ], 
+    "arguments": [
+      "Dj", 
+      "DJ", 
+      false, 
+      true
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }, 
+  "Func1": {
+    "fields": [
+      "__all"
+    ], 
+    "arguments": [
+      "_", 
+      " ", 
+      false, 
+      false
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }, 
+  "Func0": {
+    "fields": [
+      "__all"
+    ], 
+    "arguments": [
+      "%20", 
+      " ", 
+      false, 
+      false
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }, 
+  "Func7": {
+    "fields": [
+      "title"
+    ], 
+    "arguments": [
+      "~(.*)~$", 
+      "($1)", 
+      false
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replaceWithReg"
+  }, 
+  "Func6": {
+    "fields": [
+      "__all"
+    ], 
+    "arguments": [
+      "Feat.", 
+      "Featuring", 
+      false, 
+      true
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }, 
+  "Func5": {
+    "fields": [
+      "__all"
+    ], 
+    "arguments": [
+      "Vs", 
+      "vs", 
+      false, 
+      true
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }, 
+  "Func4": {
+    "fields": [
+      "__all"
+    ], 
+    "arguments": [
+      "Feat", 
+      "Featuring", 
+      false, 
+      true
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }, 
+  "Func3": {
+    "fields": [
+      "__all"
+    ], 
+    "arguments": [
+      "Mc", 
+      "MC", 
+      false, 
+      true
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }
+}

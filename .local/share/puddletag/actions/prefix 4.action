@@ -1,0 +1,17 @@
+{
+  "info": {
+    "name": "prefix 4"
+  }, 
+  "Func0": {
+    "fields": [
+      "track"
+    ], 
+    "arguments": [
+      "^(.*)", 
+      "4$1", 
+      false
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replaceWithReg"
+  }
+}

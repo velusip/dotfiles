@@ -1,0 +1,29 @@
+{
+  "info": {
+    "name": "return carriage"
+  }, 
+  "Func1": {
+    "fields": [
+      "comment"
+    ], 
+    "func_name": "replaceWithReg", 
+    "module": "puddlestuff.functions", 
+    "arguments": [
+      "^[^\\\"]+", 
+      "", 
+      "False"
+    ]
+  }, 
+  "Func0": {
+    "fields": [
+      "comment"
+    ], 
+    "func_name": "replaceWithReg", 
+    "module": "puddlestuff.functions", 
+    "arguments": [
+      "\\r", 
+      " ", 
+      "False"
+    ]
+  }
+}

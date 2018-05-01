@@ -1,0 +1,18 @@
+{
+  "info": {
+    "name": "ampersand"
+  }, 
+  "Func0": {
+    "fields": [
+      "artist"
+    ], 
+    "arguments": [
+      " & ", 
+      "\\\\", 
+      false, 
+      false
+    ], 
+    "module": "puddlestuff.functions", 
+    "func_name": "replace"
+  }
+}
